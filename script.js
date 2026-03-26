@@ -104,7 +104,7 @@ function formatLocalDateTime(unixSeconds, timezoneShiftSeconds) {
 
 function loadRecentCities() {
     try {
-        const raw = localStorage.getItem("skycast_recent");
+        const raw = localStorage.getItem("sheencast_recent");
         const parsed = raw ? JSON.parse(raw) : [];
         return Array.isArray(parsed) ? parsed : [];
     } catch {
@@ -113,7 +113,7 @@ function loadRecentCities() {
 }
 
 function saveRecentCities() {
-    localStorage.setItem("skycast_recent", JSON.stringify(recentCities));
+    localStorage.setItem("sheencast_recent", JSON.stringify(recentCities));
 }
 
 function addRecentCity(city) {

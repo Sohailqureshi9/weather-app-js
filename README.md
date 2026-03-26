@@ -1,14 +1,14 @@
-# SkyCast - Advanced Weather Web App
+# SheenCast - Advanced Weather Web App
 
 > A modern, feature-rich weather application showcasing clean code, responsive design, and real-world API integration.
 
-![SkyCast](https://img.shields.io/badge/JavaScript-ES6+-yellow) ![License](https://img.shields.io/badge/License-MIT-blue) ![Status](https://img.shields.io/badge/Status-Fully%20Functional-green)
+![SheenCast](https://img.shields.io/badge/JavaScript-ES6+-yellow) ![License](https://img.shields.io/badge/License-MIT-blue) ![Status](https://img.shields.io/badge/Status-Fully%20Functional-green)
 
 ## 📋 Overview
 
-**SkyCast** is a production-ready weather web application built with vanilla JavaScript, HTML5, and modern CSS. It demonstrates best practices in frontend development including async/await patterns, error handling, state management, localStorage persistence, and responsive UI design.
+**SheenCast** is a production-ready weather web application built with vanilla JavaScript, HTML5, and modern CSS. It demonstrates best practices in frontend development including async/await patterns, error handling, state management, localStorage persistence, and responsive UI design.
 
-The app integrates with the **OpenWeather API** to fetch real-time weather data, 5-day forecasts, and geographical weather data. Whether you need current conditions or planning ahead, SkyCast delivers accurate forecasts with a beautiful, intuitive interface.
+The app integrates with the **OpenWeather API** to fetch real-time weather data, 5-day forecasts, and geographical weather data. Whether you need current conditions or planning ahead, SheenCast delivers accurate forecasts with a beautiful, intuitive interface.
 
 **Portfolio-ready**: This project is an excellent demonstration of full-stack frontend skills suitable for resumes and job applications.
 
@@ -92,8 +92,8 @@ weather/
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/yourusername/skycast-weather.git
-   cd skycast-weather
+   git clone https://github.com/yourusername/sheencast-weather.git
+   cd sheencast-weather
    ```
 
 2. **Get Your API Key**
@@ -248,7 +248,7 @@ Parameters:
 ## 💾 Data Persistence
 
 ### LocalStorage Implementation
-- **Key**: `skycast_recent`
+- **Key**: `sheencast_recent`
 - **Type**: JSON Array of city names
 - **Limit**: Max 6 recent cities
 - **Auto-sync**: Updates after each successful weather fetch
@@ -382,7 +382,7 @@ If you encounter issues:
 (App Search Screen)
 ┌─────────────────────────────┐
 │   Live Forecast             │
-│   SkyCast                   │
+│   SheenCast                 │
 │                             │
 │ [Search Box] [🔍 Button]   │
 │ [Use My Location] [°F]     │
