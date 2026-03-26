@@ -338,7 +338,7 @@ You are free to:
 
 ## 👤 Author
 
-**Created by**: Sohail  
+**Created by**: Sohail Qureshi
 **Portfolio Project For**: Resume & GitHub Showcase  
 **Last Updated**: March 26, 2026
 
@@ -378,35 +378,7 @@ If you encounter issues:
 
 ## 📸 Screenshots
 
-```
-(App Search Screen)
-┌─────────────────────────────┐
-│   Live Forecast             │
-│   SheenCast                 │
-│                             │
-│ [Search Box] [🔍 Button]   │
-│ [Use My Location] [°F]     │
-│ Fetching weather...         │
-└─────────────────────────────┘
-
-(Weather Results)
-┌─────────────────────────────┐
-│   72°C                      │
-│   London, UK                │
-│   Partly Cloudy             │
-│   Updated: Mon, 14:30       │
-│                             │
-│ Humidity: 65% | Wind: 12km/h│
-│ Feels Like: 70°C | Vis: 10km│
-│ Sunrise: 06:45 | Sunset: 20│
-│                             │
-│ 5-Day Forecast:             │
-│ [Mon 71°] [Tue 68°] ...     │
-│                             │
-│ Recent Searches:            │
-│ [London] [Paris] [Tokyo]    │
-└─────────────────────────────┘
-```
+<img width="529" height="810" alt="image" src="https://github.com/user-attachments/assets/661a811b-330e-46f9-87f8-2c0e54858198" />
 
 ---
 
