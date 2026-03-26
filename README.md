@@ -92,7 +92,7 @@ weather/
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/yourusername/sheencast-weather.git
+   git clone https://github.com/sohailqureshi9/weather-app-js.git
    cd sheencast-weather
    ```
 
