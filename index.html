@@ -4,95 +4,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <meta name="description"
+        content="SkyCast is a responsive weather web app that shows real-time weather conditions by city.">
+    <title>SkyCast | Weather Web App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="card">
-        <div class="search">
-            <input type="text" name="" id="" placeholder="enter city name" autocomplete="off" spellcheck="false">
-            <button><img src="images/search.png" alt=""></button>
-        </div>
+    <main class="app-shell">
+        <section class="card" aria-live="polite">
+            <header class="app-header">
+                <p class="eyebrow">Live Forecast</p>
+                <h1>SkyCast</h1>
+                <p class="subtitle">Search any city and get instant weather updates.</p>
+            </header>
 
-        <div class="weather">
-            <img src="images/rain.png" class="weather-icon">
-            <h1 class="temp"></h1>
-            <h2 class="city"></h2>
-            <div class="details">
-                <div class="col">
-                    <img src="images/humidity.png">
-                    <div>
-                        <p class="humidity"></p>
-                        <p></p>
-                    </div>
-                </div>
-                <div class="col">
-                    <img src="images/wind.png">
-                    <div>
-                        <p class="wind"></p>
-                        <p></p>
-                    </div>
-                </div>
+            <form class="search" id="weather-form">
+                <label for="city-input" class="sr-only">City name</label>
+                <input id="city-input" type="text" placeholder="Enter city name" autocomplete="off" spellcheck="false"
+                    required>
+                <button type="submit" aria-label="Search city weather">
+                    <img src="images/search.png" alt="Search icon">
+                </button>
+            </form>
+
+            <div class="actions">
+                <button id="detect-location" class="ghost-btn" type="button">Use My Location</button>
+                <button id="unit-toggle" class="ghost-btn" type="button" aria-pressed="false">Show in
+                    Fahrenheit</button>
             </div>
-        </div>
-    </div>
 
-    <script>
-        const apiKey = "80dd3ca1fce75295f09a4d5469171b06";
-        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+            <p class="status" id="status-text">Type a city and press Enter.</p>
 
-        const searchBox = document.querySelector(".search input");
-        const searchBtn = document.querySelector(".search button");
+            <section class="weather hidden" id="weather-panel">
+                <img src="images/rain.png" class="weather-icon" id="weather-icon" alt="Weather condition icon">
+                <h2 class="temp" id="temperature"></h2>
+                <h3 class="city" id="city-name"></h3>
+                <p class="description" id="weather-description"></p>
+                <p class="meta-row" id="last-updated"></p>
 
-        async function checkWeather(city) {
-            const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
-            var data = await response.json();
-            console.log(data);
+                <div class="details">
+                    <article class="col">
+                        <img src="images/humidity.png" alt="Humidity icon">
+                        <div>
+                            <p class="label">Humidity</p>
+                            <p class="value" id="humidity"></p>
+                        </div>
+                    </article>
+                    <article class="col">
+                        <img src="images/wind.png" alt="Wind icon">
+                        <div>
+                            <p class="label">Wind</p>
+                            <p class="value" id="wind"></p>
+                        </div>
+                    </article>
+                    <article class="col metrics-wide">
+                        <div>
+                            <p class="label">Feels Like</p>
+                            <p class="value" id="feels-like"></p>
+                        </div>
+                    </article>
+                    <article class="col metrics-wide">
+                        <div>
+                            <p class="label">Visibility</p>
+                            <p class="value" id="visibility"></p>
+                        </div>
+                    </article>
+                    <article class="col metrics-wide">
+                        <div>
+                            <p class="label">Sunrise</p>
+                            <p class="value" id="sunrise"></p>
+                        </div>
+                    </article>
+                    <article class="col metrics-wide">
+                        <div>
+                            <p class="label">Sunset</p>
+                            <p class="value" id="sunset"></p>
+                        </div>
+                    </article>
+                </div>
 
-            document.querySelector(".city").innerHTML = data.name;
-            document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
-            document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
-            document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+                <section class="forecast" id="forecast-section">
+                    <h4>5-Day Forecast</h4>
+                    <div class="forecast-grid" id="forecast-grid"></div>
+                </section>
+            </section>
 
-            if (data.weather[0].main == "Clouds") {
-                document.querySelector(".weather-icon").src = "images/clouds.png";
-            }
-            else if (data.weather[0].main == "Clear") {
-                document.querySelector(".weather-icon").src = "images/clear.png";
-            }
-            else if (data.weather[0].main == "Rain") {
-                document.querySelector(".weather-icon").src = "images/rain.png";
-            }
-            else if (data.weather[0].main == "Drizzle") {
-                document.querySelector(".weather-icon").src = "images/drizzle.png";
-            }
-            else if (data.weather[0].main == "Mist") {
-                document.querySelector(".weather-icon").src = "images/mist.png";
-            }
-            else if (data.weather[0].main == "Snow") {
-                document.querySelector(".weather-icon").src = "images/snow.png";
-            } else if (data.weather[0].main == "Wind") {
-                document.querySelector(".weather-icon").src = "images/wind.png";
+            <section class="recent hidden" id="recent-section">
+                <h4>Recent Searches</h4>
+                <div class="chips" id="recent-chips"></div>
+            </section>
 
-            }
+            <p class="error hidden" id="error-text"></p>
+            <footer class="footer-note">Built for portfolio and resume showcase.</footer>
+        </section>
+    </main>
 
-        }
-
-        searchBtn.addEventListener("click", () => {
-            checkWeather(searchBox.value);
-        });
-
-        searchBox.addEventListener("keypress", (event) => {
-            if (event.key === "Enter") {
-                checkWeather(searchBox.value);
-            }
-        });
-
-
-        checkWeather("New York");
-
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
